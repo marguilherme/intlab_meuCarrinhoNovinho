@@ -1,0 +1,206 @@
+$cor-principal: #FFCB00;
+$cor-secundaria: #333;
+$cor-vermelha: #F00;
+
+$font: Raleway,
+Arial,
+Tahoma;
+$tamanho: 36px;
+$tamanho2: 16px;
+
+@mixin padding {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+@mixin sombra($cor) {
+    box-shadow: 0 0 20px $cor;
+}
+
+@mixin margin {
+    margin: 15px
+}
+
+/* CSS reset */
+* {
+    padding: 0px;
+    margin: 0px;
+    font: $tamanho2 $font;
+}
+
+body {
+    padding-top: 100px;
+}
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: $cor-principal;
+    @include padding;
+    @include sombra(#666);
+
+    & &-nav {
+        float: right;
+
+        ul {
+            list-style-type: none;
+
+            li {
+                display: inline-block;
+                margin: 30px;
+
+                a {
+                    text-decoration: none;
+                    color: $cor-secundaria;
+                    font-weight: 700;
+                    transition: all 0.5s;
+
+                    &:hover {
+                        color: $cor-vermelha;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.banner {
+    img {
+        width: 100%;
+    }
+}
+
+.main {
+    width: 1000px;
+    margin: 50px auto;
+
+    h1 {
+        font-size: $tamanho;
+        font-weight: 700px;
+        text-align: center;
+        margin: 30px;
+    }
+
+    h2, h3, h4 {
+        @include margin;
+        font-size: $tamanho2;
+        font-weight: 700px;
+        text-align: center;
+    }
+
+    & &-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 33.33%);
+    }
+
+    & &-coluna {
+        @include padding;
+        @include sombra(rgb(173, 173, 173));
+        @include margin;
+        text-align: center;
+        border-radius: 15px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    & &-grid-detalhes {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        .coluna-detalhes{
+            @include padding;
+        }
+
+    }
+
+    .img {
+        background-color: #F1F1F1;
+        @include sombra(#666);
+        @include padding;
+        width: 100%;
+        filter: grayscale(100);
+        transition: all 1s;
+
+        &:hover {
+            filter: grayscale(0);
+        }
+    }
+
+    .valor {
+        text-align: center;
+        color: $cor-vermelha;
+        font-weight: 700px;
+        font-size:1.1em;
+    }
+    & &-grid-info {
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
+        margin: 30px 0;
+        .grid-coluna-info {
+            text-align: center;
+            @include padding;
+            margin: 5px;
+            border: 1px solid #ccc;
+            small {
+                font-size: 0.8em;
+                color: #999
+            }
+        }
+        & &-grid-detalhes {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            .coluna-detalhes{
+                @include padding;
+            }
+        }
+    }
+
+    .btn {
+        background-color: $cor-principal;
+        color: $cor-secundaria;
+        text-decoration: none;
+        @include margin;
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 5px;
+        @include sombra(#ccc);
+        transition: all 1s;
+
+        &:hover {
+            background-color: $cor-secundaria;
+            color: $cor-principal;
+        }
+    }
+}
+
+.footer {
+    background-color: $cor-principal;
+    @include padding;
+    @include sombra(#666);
+
+    p {
+        text-align: center;
+
+        a {
+            background-color: $cor-secundaria;
+            color: $cor-principal;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px;
+            width: 35px;
+            /* largura */
+            height: 35px;
+            /* altura */
+            border-radius: 100%;
+            line-height: 35px;
+            transition: all 0.5s;
+
+            &:hover {
+                background-color: $cor-vermelha;
+            }
+        }
+
+    }
+}
